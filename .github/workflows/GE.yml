@@ -26,4 +26,4 @@ jobs:
           python-version: "3.x"
       - name: 配置 Git
         run: |
-          git branch -a
+          git ls-remote --head origin
