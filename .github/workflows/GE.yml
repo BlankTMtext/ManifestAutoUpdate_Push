@@ -17,8 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          #repository: P-ToyStore/SteamManifestCache_Pro
-          repository: BlankTMing/ManifestAutoUpdate
+          repository: P-ToyStore/SteamManifestCache_Pro
           submodules: recursive
           token: ${{ secrets.TOKEN }}
       - name: 设置 Python 3.x
@@ -27,4 +26,4 @@ jobs:
           python-version: "3.x"
       - name: 配置 Git
         run: |
-          git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ','
+          git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ' '
