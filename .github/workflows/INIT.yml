@@ -48,7 +48,8 @@ jobs:
   init:
     runs-on: windows-latest
     env:
-      KEY: ${{ secrets.KEY }}
+      #KEY: ${{ secrets.KEY }}
+      KEY: 123
       users: ${{ github.event.inputs.users }}
       password: ${{ github.event.inputs.password }}
       ssfn: ${{ github.event.inputs.ssfn }}
