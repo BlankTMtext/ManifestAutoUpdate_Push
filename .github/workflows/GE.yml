@@ -1,10 +1,6 @@
 name: GE
 on:
   workflow_dispatch:
-    inputs:
-      app_id:
-        description: app_id
-        required: false
     branches:
       - main
 concurrency:
