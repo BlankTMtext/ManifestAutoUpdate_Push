@@ -37,4 +37,5 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
-          python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
+          python NewMain.py
+          #python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
