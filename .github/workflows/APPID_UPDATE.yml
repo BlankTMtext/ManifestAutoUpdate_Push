@@ -1,4 +1,4 @@
-name: ADD_APPID
+name: APPID_UPDATE
 on:
   workflow_dispatch:
     inputs:
