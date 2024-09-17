@@ -34,8 +34,7 @@ jobs:
           git config --local user.email github-actions[bot]@github.com
           git fetch origin data:origin_data
           git worktree add -b data data origin_data
-          git remote set-url origin https://github.com/P-ToyStore/SteamManifestCache_Pro
+          git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
-          python NewMain.py
-          #python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
+          python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
