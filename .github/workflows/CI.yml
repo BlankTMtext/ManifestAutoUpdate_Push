@@ -48,8 +48,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - run: |
-          [System.Globalization.CultureInfo]::CurrentCulture = 'zh-CN'
-          [System.Globalization.CultureInfo]::CurrentUICulture = 'zh-CN'
           git config --local user.name github-actions[bot]
           git config --local user.email 542850148@qq.com
           git fetch origin data:origin_data
