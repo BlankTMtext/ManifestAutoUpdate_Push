@@ -5,8 +5,8 @@ on:
       app_id:
         description: app_id
         required: false
-      更新全部:
-        description: update_all
+      update_all:
+        description: 更新全部
         type: boolean
         required: false
         default: false
