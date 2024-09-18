@@ -47,4 +47,3 @@ jobs:
           else
              python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
           fi
-          #python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} -all
