@@ -14,7 +14,7 @@ on:
       retry:
         description: Number of retries
         required: true
-        default: 3
+        default: 1
       time:
         description: Update wait time
         required: true
