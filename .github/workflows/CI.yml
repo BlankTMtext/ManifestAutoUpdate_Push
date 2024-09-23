@@ -53,5 +53,4 @@ jobs:
           git fetch origin data:origin_data
           git worktree add -b data data origin_data
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
-          python NewMain.py
-          #python main.py -l ${{ github.event.inputs.level || 'INFO' }} -p ${{ github.event.inputs.pool || 64 }} -r ${{ github.event.inputs.retry || 1 }} -t ${{ github.event.inputs.time || 1 }} -k ${{ secrets.KEY }} ${{ github.event.inputs.args }}
+          python main.py -l ${{ github.event.inputs.level || 'INFO' }} -p ${{ github.event.inputs.pool || 64 }} -r ${{ github.event.inputs.retry || 1 }} -t ${{ github.event.inputs.time || 1 }} -k ${{ secrets.KEY }} ${{ github.event.inputs.args }}
