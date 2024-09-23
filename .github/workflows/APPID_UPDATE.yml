@@ -2,11 +2,14 @@ name: APPID_UPDATE
 on:
   workflow_dispatch:
     inputs:
+      args:
+        description: args
+        required: false
       app_id:
         description: app_id
         required: false
-      update_all:
-        description: 更新全部
+      update:
+        description: 更新
         type: boolean
         required: false
         default: false
@@ -42,8 +45,8 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
-          if [ "${{ github.event.inputs.update_all }}" = "true" ]; then
-             python AppidGetManifest.py -all
+          if [ "${{ github.event.inputs.update }}" = "true" ]; then
+             python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} -u
           else
-             python AppidGetManifest.py -a ${{ github.event.inputs.app_id }}
+             python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} ${{ github.event.inputs.args }}
           fi
