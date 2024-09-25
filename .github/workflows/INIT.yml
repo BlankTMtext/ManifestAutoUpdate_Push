@@ -107,6 +107,6 @@ jobs:
       - if: ${{ env.TwoFactorJson != '' }}
         run: python -c "import os;import json;j=json.load(open('data/2fa.json'));j.update(json.loads(os.environ.get('TwoFactorJson') or '{}'));json.dump(j,open('data/2fa.json','w'));"
       - if: ${{ github.event.inputs.update }}
-        run: python main.py -l ${{ github.event.inputs.level || 'INFO' }} -k ${{ secrets.KEY }} -t 1 -u -P ${{ github.event.inputs.update_users != '' && format('-U {0}', github.event.inputs.update_users) || '' }} ${{ github.event.inputs.args }}
+        run: python main.py -l ${{ github.event.inputs.level || 'INFO' }} -k ${{ secrets.KEY }} -t 1 -u ${{ github.event.inputs.update_users != '' && format('-U {0}', github.event.inputs.update_users) || '' }} ${{ github.event.inputs.args }}
       #- if: ${{ env.users != '' || env.shared_secret != '' || env.UsersJson != '' || env.TwoFactorJson != '' || github.event.inputs.update }}
         #run: python push.py
