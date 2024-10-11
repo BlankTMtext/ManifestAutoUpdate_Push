@@ -46,8 +46,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   init:
-    #runs-on: ubuntu-latest
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       KEY: ${{ secrets.KEY }}
       users: ${{ github.event.inputs.users }}
