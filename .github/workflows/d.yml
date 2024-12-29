@@ -12,11 +12,12 @@ concurrency:
   cancel-in-progress: false
 jobs:
   init:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          repository: BlankTMing/ManifestAutoUpdate_Code
           submodules: recursive
           token: ${{ secrets.TOKEN }}
       - name: Set up Python 3.x
