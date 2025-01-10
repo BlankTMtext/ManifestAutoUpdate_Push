@@ -1,4 +1,4 @@
-name: APPID_UPDATE
+name: UPDATE
 on:
   workflow_dispatch:
     branches:
