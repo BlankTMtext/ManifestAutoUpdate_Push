@@ -1,18 +1,6 @@
 name: APPID_UPDATE
 on:
   workflow_dispatch:
-    inputs:
-      args:
-        description: args
-        required: false
-      app_id:
-        description: app_id
-        required: false
-      update:
-        description: 更新
-        type: boolean
-        required: false
-        default: false
     branches:
       - main
   schedule:
@@ -47,4 +35,4 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
-          python AppidGetManifest.py -a -all
+          python AppidGetManifest.py -all
