@@ -15,8 +15,6 @@ on:
         default: false
     branches:
       - main
-  schedule:
-    - cron: '0 */1 * * *'
 concurrency:
   group: wait
   cancel-in-progress: false
