@@ -1,0 +1,50 @@
+name: APPID_UPDATE
+on:
+  workflow_dispatch:
+    inputs:
+      args:
+        description: args
+        required: false
+      app_id:
+        description: app_id
+        required: false
+      update:
+        description: 更新
+        type: boolean
+        required: false
+        default: false
+    branches:
+      - main
+  schedule:
+    - cron: '0 */1 * * *'
+concurrency:
+  group: wait
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          repository: BlankTMing/ManifestAutoUpdate_Code
+          submodules: recursive
+          token: ${{ secrets.TOKEN }}
+      - name: 设置 Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: 配置 Git
+        run: |
+          git config --local user.name github-actions[bot]
+          git config --local user.email github-actions[bot]@github.com
+          git fetch origin data:origin_data
+          git worktree add -b data data origin_data
+          git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
+      - name: 运行脚本
+        run: |
+          python AppidGetManifest.py -a -all
