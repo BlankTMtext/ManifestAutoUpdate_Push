@@ -22,4 +22,5 @@ jobs:
           python-version: "3.x"
       - name: 配置 Git
         run: |
-          git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ','
+          git push origin --delete $(git ls-remote --tags origin | awk '{print \$2}' | sed 's/refs\/tags\///' | grep -E '[0-9]+_[0-9]+')
+          #git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ','
