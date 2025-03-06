@@ -45,8 +45,8 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
-          if [ "${{ github.event.inputs.update }}" = "true" ]; then
-             python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} -u
-          else
-             python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} ${{ github.event.inputs.args }}
-          fi
+          if (${{ github.event.inputs.update }} -eq $true) {
+            python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} -u
+          } else {
+            python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} ${{ github.event.inputs.args }}
+          }
