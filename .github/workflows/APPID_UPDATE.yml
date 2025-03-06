@@ -45,6 +45,7 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 运行脚本
         run: |
+          ulimit -n 65535
           if [ "${{ github.event.inputs.update }}" = "true" ]; then
              python AppidGetManifest.py -a ${{ github.event.inputs.app_id }} -u
           else
