@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          #fetch-depth: 1
-          #repository: BlankTMing/ManifestAutoUpdate_Code
+          fetch-depth: 1
+          repository: BlankTMing/ManifestAutoUpdate_Code
           submodules: recursive
           token: ${{ secrets.TOKEN }}
       - name: 设置 Python 3.x
