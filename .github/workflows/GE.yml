@@ -10,6 +10,16 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          #fetch-depth: 1
+          #repository: P-ToyStore/SteamManifestCache_Pro
+          submodules: recursive
+          token: ${{ secrets.TOKEN }}
+      - name: 设置 Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
       - name: 配置 Git
         run: |
           git remote add B https://github.com/BlankTMing/ManifestAutoUpdate2.git
