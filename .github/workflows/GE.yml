@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
-          repository: P-ToyStore/SteamManifestCache_Pro
+          #fetch-depth: 1
+          #repository: P-ToyStore/SteamManifestCache_Pro
           submodules: recursive
           token: ${{ secrets.TOKEN }}
       - name: 设置 Python 3.x
@@ -24,5 +24,5 @@ jobs:
         run: |
           git remote add B https://github.com/BlankTMing/ManifestAutoUpdate2.git
           git remote add A https://github.com/BlankTMing/ManifestAutoUpdate.git
-          git fetch A
+          git fetch --all
           git push B --all A
