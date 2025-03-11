@@ -1,4 +1,4 @@
-name: GE
+name: Push
 on:
   workflow_dispatch:
     branches:
