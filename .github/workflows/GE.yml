@@ -24,6 +24,6 @@ jobs:
         run: |
           git remote add B https://github.com/BlankTMing/ManifestAutoUpdate2.git
           git remote add A https://github.com/BlankTMing/ManifestAutoUpdate.git
-          git fetch A
-          git push B --all A
-          #git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ' '
+          git fetch --all
+          git branch -r
+          git push B --all
