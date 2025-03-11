@@ -22,6 +22,6 @@ jobs:
           python-version: "3.x"
       - name: 配置 Git
         run: |
-          git remote add B https://github.com/BlankTMing/ManifestAutoUpdate2.git
+          #git remote add B https://github.com/BlankTMing/ManifestAutoUpdate2.git
           git branch -r
-          git push B --all
+          #git push B --all
