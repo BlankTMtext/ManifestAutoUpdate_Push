@@ -75,7 +75,7 @@ jobs:
           git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
           git fetch origin data:origin_data
           git worktree add -b data data origin_data
-          git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
+          git remote set-url origin https://github.com/BlankTMing/ManifestHub
       - if: ${{ env.KEY != '' }}
         run: python main.py -l ${{ github.event.inputs.level || 'INFO' }} -i -k ${{ secrets.KEY }} -P ${{ github.event.inputs.args }}
       - if: ${{ env.KEY == '' }}
