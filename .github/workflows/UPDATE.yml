@@ -32,7 +32,7 @@ jobs:
           git config --local user.email github-actions[bot]@github.com
           git fetch origin data:origin_data
           git worktree add -b data data origin_data
-          git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
+          git remote set-url origin https://github.com/BlankTMing/ManifestHub
       - name: 运行脚本
         run: |
           python AppidGetManifest.py -all
