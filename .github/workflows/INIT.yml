@@ -72,7 +72,7 @@ jobs:
           pip install -r requirements.txt
       - run: |
           git config --local user.name github-actions[bot]
-          git config --local user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --local user.email github-actions[bot]@users.noreply.github.com
           git fetch origin data:origin_data
           git worktree add -b data data origin_data
           git remote set-url origin https://github.com/BlankTMing/ManifestHub
