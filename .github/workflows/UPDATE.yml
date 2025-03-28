@@ -1,9 +1,5 @@
 name: UPDATE
 on:
-  workflow_run:
-    workflows: ["Delete"]
-    types:
-      - completed
   workflow_dispatch:
     branches:
       - main
