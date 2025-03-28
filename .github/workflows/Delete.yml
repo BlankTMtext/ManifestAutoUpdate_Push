@@ -1,0 +1,24 @@
+name: Delete Actions Runs
+on:
+  push:
+    branches:
+      - main
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete workflow runs
+        run: |
+          # 获取当前所有工作流记录
+          runs=$(curl -s -H "Authorization: token ${{ secrets.TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=100")
+          
+          # 获取每个运行的 ID
+          run_ids=$(echo "$runs" | jq -r '.workflow_runs[] | .id')
+
+          # 删除每个工作流记录
+          for run_id in $run_ids; do
+            echo "Deleting workflow run ID: $run_id"
+            curl -X DELETE -H "Authorization: token ${{ secrets.TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/runs/$run_id"
+          done
