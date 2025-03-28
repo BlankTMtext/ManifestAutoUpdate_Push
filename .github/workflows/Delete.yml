@@ -7,10 +7,6 @@ on:
   workflow_dispatch:
     branches:
       - main
-concurrency:
-  group: wait
-  cancel-in-progress: false
-  
 jobs:
   delete:
     runs-on: ubuntu-latest
