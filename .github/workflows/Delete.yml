@@ -1,4 +1,4 @@
-name: Delete
+name: Delete Actions Runs
 on:
   workflow_run:
     workflows: ["UPDATE"]
