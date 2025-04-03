@@ -25,7 +25,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '45 14 * * *'
+    - cron: '0 17 * * *'
 concurrency:
   group: wait
   cancel-in-progress: false
