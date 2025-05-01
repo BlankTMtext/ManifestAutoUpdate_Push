@@ -50,7 +50,7 @@ jobs:
       - run: |
           git config --local user.name github-actions[bot]
           git config --local user.email github-actions[bot]@github.com
-          git fetch origin data:origin_data
+          git fetch --depth=1 origin data:origin_data
           git worktree add -b data data origin_data
           git remote set-url origin https://github.com/BlankTMing/ManifestHub
           python main.py -l ${{ github.event.inputs.level || 'INFO' }} -p ${{ github.event.inputs.pool || 64 }} -r ${{ github.event.inputs.retry || 1 }} -t ${{ github.event.inputs.time || 1 }} -k ${{ secrets.KEY }} ${{ github.event.inputs.args }}
