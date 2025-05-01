@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --local user.name github-actions[bot]
           git config --local user.email github-actions[bot]@github.com
-          git fetch origin data:origin_data
+          git fetch --depth=1 origin data:origin_data
           git worktree add -b data data origin_data
           git remote set-url origin https://github.com/BlankTMing/ManifestHub
       - name: 运行脚本
