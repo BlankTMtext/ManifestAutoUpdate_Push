@@ -31,4 +31,4 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestAutoUpdate
       - name: 配置并删除分支
         run: |
-          python test.py
+          python test2.py
