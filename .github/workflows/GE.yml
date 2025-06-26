@@ -22,4 +22,4 @@ jobs:
           python-version: "3.x"
       - name: 配置 Git
         run: |
-          git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ','
+          git ls-remote --heads origin | cut -f2 | sed 's/refs\/heads\///' | tr '\n' ' '
