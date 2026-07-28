@@ -14,7 +14,7 @@ jobs:
       - name: Delete workflow runs
         run: |
           # 获取当前所有工作流记录
-          runs=$(curl -s -H "Authorization: token ${{ secrets.TOKEN }}" \
+          runs=$(curl -s -H "Authorization: token ${{ secrets.TOKEN2 }}" \
             "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=100")
           
           # 获取每个运行的 ID
@@ -23,6 +23,6 @@ jobs:
           # 删除每个工作流记录
           for run_id in $run_ids; do
             echo "Deleting workflow run ID: $run_id"
-            curl -X DELETE -H "Authorization: token ${{ secrets.TOKEN }}" \
+            curl -X DELETE -H "Authorization: token ${{ secrets.TOKEN2 }}" \
               "https://api.github.com/repos/${{ github.repository }}/actions/runs/$run_id"
           done
