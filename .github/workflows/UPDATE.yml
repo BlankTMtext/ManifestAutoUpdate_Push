@@ -51,5 +51,5 @@ jobs:
             echo "===== 第 $((i / batchSize + 1)) 批：${#batch[@]} 个 ====="
             printf '  %s\n' "${batch[@]}"
 
-            python AppidGetManifest.py -a "${batch[@]}"
+            python AppidGetManifest2.py -a "${batch[@]}"
           done
