@@ -42,7 +42,7 @@ jobs:
               | grep -vx -e 'app' -e '101010101010101' -e '010101010101010' -e 'data' -e '001000001000'
           )
 
-          batchSize=20000
+          batchSize=10000
           total=${#IDS[@]}
           echo "共 $total 个分支，每批 $batchSize"
           for ((i = 0; i < total; i += batchSize)); do
