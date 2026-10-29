@@ -35,4 +35,21 @@ jobs:
           git remote set-url origin https://github.com/BlankTMing/ManifestHub
       - name: 运行脚本
         run: |
-          python AppidGetManifest.py -all
+          mapfile -t IDS < <(
+            git ls-remote --heads origin \
+              | cut -f2 \
+              | sed 's/refs\/heads\///' \
+              | grep -vx -e 'app' -e '101010101010101' -e '010101010101010' -e 'data' -e '001000001000'
+          )
+
+          batchSize=300
+          total=${#IDS[@]}
+          echo "共 $total 个分支，每批 $batchSize"
+
+          for ((i = 0; i < total; i += batchSize)); do
+            batch=("${IDS[@]:i:batchSize}")
+            echo "===== 第 $((i / batchSize + 1)) 批：${#batch[@]} 个 ====="
+            printf '  %s\n' "${batch[@]}"
+
+            python AppidGetManifest.py -a "${batch[@]}"
+          done
